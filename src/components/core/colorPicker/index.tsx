@@ -21,16 +21,25 @@ function Colorpicker({ colors, setColors, setTouched, isPalleteTouched }: Colorp
       setTouched(true);
     }
     if (typeof color === "string") {
+<<<<<<< HEAD
       const updatedColors = { ...colors, [`color0${selectedColorSection}`]: color };
       setColors(updatedColors);
       setColorInputs(updatedColors);
+=======
+      setColors({ ...colors, [`color0${selectedColorSection}`]: color });
+      setColorInputs({ ...colorInputs, [`color0${selectedColorSection}`]: color });
+>>>>>>> origin/colorpicker
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, section: number) => {
     const value = e.target.value;
     setColorInputs({ ...colorInputs, [`color0${section}`]: value });
+<<<<<<< HEAD
     if (/^#([0-9A-F]{3}){1,2}$/i.test(value)) {
+=======
+    if (/^#[0-9A-F]{6}$/i.test(value)) {
+>>>>>>> origin/colorpicker
       changeHandler(value);
     }
   };
@@ -52,7 +61,10 @@ function Colorpicker({ colors, setColors, setTouched, isPalleteTouched }: Colorp
             <div
               key={color}
               onClick={() => showPicker(index + 1)}
+<<<<<<< HEAD
               onKeyUp={(e) => { if (e.key === 'Enter') showPicker(index + 1); }}
+=======
+>>>>>>> origin/colorpicker
               className={`cursor-pointer w-full ${index === 0 ? 'rounded-tl-[0.8rem] rounded-bl-[0.8rem]' : ''} ${index === 3 ? 'rounded-tr-[0.8rem] rounded-br-[0.8rem]' : ''}`}
               style={{
                 backgroundColor: colors[color],
